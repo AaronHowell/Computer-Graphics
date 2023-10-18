@@ -1,2 +1,5 @@
-/.idea       # 忽略名为 .idea 的文件夹
-/__pycache__  # 忽略名为 __pycache__ 的文件夹
+/.idea
+
+/__pycache__
+
+.xml
