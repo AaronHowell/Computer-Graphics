@@ -2,19 +2,16 @@
 <ui version="4.0">
     <class>Dialog</class>
     <widget class="QDialog" name="Dialog">
-        <property name="enabled">
-            <bool>true</bool>
-        </property>
         <property name="geometry">
             <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>348</width>
-                <height>195</height>
+                <width>332</width>
+                <height>220</height>
             </rect>
         </property>
         <property name="windowTitle">
-            <string>直线信息</string>
+            <string>Dialog</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout">
             <item>
@@ -26,89 +23,55 @@
                         </size>
                     </property>
                     <property name="text">
-                        <string>请给出直线参数(px)：</string>
+                        <string>请给出椭圆的相关信息：</string>
                     </property>
                 </widget>
             </item>
             <item>
                 <layout class="QHBoxLayout" name="horizontalLayout">
                     <item>
-                        <widget class="QLabel" name="label_2">
-                            <property name="text">
-                                <string>x1:</string>
-                            </property>
-                        </widget>
-                    </item>
-                    <item>
-                        <widget class="QLineEdit" name="lineEdit">
-                            <property name="inputMask">
-                                <string/>
-                            </property>
-                            <property name="text">
-                                <string/>
-                            </property>
-                            <property name="alignment">
-                                <set>Qt::AlignCenter</set>
-                            </property>
-                        </widget>
-                    </item>
-                    <item>
                         <widget class="QLabel" name="label_3">
                             <property name="text">
-                                <string>y1:</string>
+                                <string>X:</string>
                             </property>
                         </widget>
                     </item>
                     <item>
-                        <widget class="QLineEdit" name="lineEdit_2">
-                            <property name="inputMask">
-                                <string/>
-                            </property>
-                            <property name="alignment">
-                                <set>Qt::AlignCenter</set>
+                        <widget class="QLineEdit" name="lineEdit_2"/>
+                    </item>
+                    <item>
+                        <widget class="QLabel" name="label_4">
+                            <property name="text">
+                                <string>Y:</string>
                             </property>
                         </widget>
+                    </item>
+                    <item>
+                        <widget class="QLineEdit" name="lineEdit_3"/>
                     </item>
                 </layout>
             </item>
             <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_2">
                     <item>
-                        <widget class="QLabel" name="label_4">
+                        <widget class="QLabel" name="label_2">
                             <property name="text">
-                                <string>x2:</string>
+                                <string>a:</string>
                             </property>
                         </widget>
                     </item>
                     <item>
-                        <widget class="QLineEdit" name="lineEdit_3">
-                            <property name="inputMask">
-                                <string/>
-                            </property>
-                            <property name="alignment">
-                                <set>Qt::AlignCenter</set>
-                            </property>
-                        </widget>
+                        <widget class="QLineEdit" name="lineEdit"/>
                     </item>
                     <item>
                         <widget class="QLabel" name="label_5">
                             <property name="text">
-                                <string>y2:</string>
+                                <string>b:</string>
                             </property>
                         </widget>
                     </item>
                     <item>
-                        <widget class="QLineEdit" name="lineEdit_4">
-                            <property name="inputMask">
-                                <string/>
-                            </property>
-                            <property name="alignment">
-                                <set>Qt::AlignCenter</set>
-                            </property>
-                            <property name="dragEnabled">
-                                <bool>false</bool>
-                            </property>
-                        </widget>
+                        <widget class="QLineEdit" name="lineEdit_4"/>
                     </item>
                 </layout>
             </item>

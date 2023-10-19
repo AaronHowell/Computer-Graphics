@@ -3,11 +3,11 @@ from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtWidgets import QApplication, QDialog, QMessageBox
 
-from lineDialog import Ui_Dialog
+from circleDialog_ui import Ui_Dialog
 
 
-class lineD(Ui_Dialog, QDialog):
-    infoSignal = pyqtSignal(list)
+class circleDialog(Ui_Dialog, QDialog):
+    circleinfoSignal = pyqtSignal(list)
 
     def __init__(self):
         super().__init__()
@@ -18,8 +18,8 @@ class lineD(Ui_Dialog, QDialog):
 
     def emitlineInfo(self):
         try:
-            self.infoSignal.emit([int(self.lineEdit.text()), int(self.lineEdit_2.text()),
-                                  int(self.lineEdit_3.text()), int(self.lineEdit_4.text())])
+            self.circleinfoSignal.emit([int(self.lineEdit.text()), int(self.lineEdit_2.text()),
+                                        int(self.lineEdit_3.text())])
         except Exception as e:
             QMessageBox.warning(self, 'Error', f'{str(e)}')
 
@@ -28,7 +28,6 @@ class lineD(Ui_Dialog, QDialog):
         self.lineEdit.setValidator(validator)
         self.lineEdit_2.setValidator(validator)
         self.lineEdit_3.setValidator(validator)
-        self.lineEdit_4.setValidator(validator)
 
 
 if __name__ == "__main__":

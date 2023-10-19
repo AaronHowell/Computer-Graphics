@@ -3,11 +3,11 @@ from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtWidgets import QApplication, QDialog, QMessageBox
 
-from lineDialog import Ui_Dialog
+from elliptic_ui import Ui_Dialog
 
 
-class lineD(Ui_Dialog, QDialog):
-    infoSignal = pyqtSignal(list)
+class ellipticDialog(Ui_Dialog, QDialog):
+    ellipseinfoSignal = pyqtSignal(list)
 
     def __init__(self):
         super().__init__()
@@ -18,8 +18,8 @@ class lineD(Ui_Dialog, QDialog):
 
     def emitlineInfo(self):
         try:
-            self.infoSignal.emit([int(self.lineEdit.text()), int(self.lineEdit_2.text()),
-                                  int(self.lineEdit_3.text()), int(self.lineEdit_4.text())])
+            self.ellipseinfoSignal.emit([int(self.lineEdit.text()), int(self.lineEdit_2.text()),
+                                         int(self.lineEdit_3.text()), int(self.lineEdit_4.text())])
         except Exception as e:
             QMessageBox.warning(self, 'Error', f'{str(e)}')
 

@@ -1,8 +1,7 @@
-import sys
-from PyQt5.QtWidgets import (QApplication, QGraphicsView, QGraphicsScene, QGraphicsLineItem, QMainWindow, QWidget,
-                             QPushButton,QGraphicsPathItem, QGraphicsRectItem, QGraphicsEllipseItem, QGraphicsLineItem)
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPen, QColor, QPainterPath
+from PyQt5.QtWidgets import (QGraphicsRectItem, QGraphicsEllipseItem, QGraphicsLineItem)
+
 
 class CartesianCoordinateSystem:
 
@@ -10,7 +9,6 @@ class CartesianCoordinateSystem:
         self.scene = scene
         self.unit = 20
         self.drawCoordinateSystem()
-
 
     def drawCoordinateSystem(self):
         # 创建用于坐标轴的QPen（实线黑色）
@@ -41,8 +39,8 @@ class CartesianCoordinateSystem:
         self.drawCoordinateSystem()
 
     def drawPoint(self, x, y, pen):
-        x=x*self.unit
-        y=y*self.unit
+        x = x * self.unit
+        y = y * self.unit
 
         path = QPainterPath()
         path.addEllipse(x - 5, -y - 5, 10, 10)
@@ -50,10 +48,10 @@ class CartesianCoordinateSystem:
         return point_item
 
     def drawRectangle(self, x, y, width, height, pen, filled=False):
-        x=x*self.unit
-        y=y*self.unit
-        width=width*self.unit
-        height=height*self.unit
+        x = x * self.unit
+        y = y * self.unit
+        width = width * self.unit
+        height = height * self.unit
         rect_item = QGraphicsRectItem(x, -y, width, height)
         rect_item.setPen(pen)
         if filled:
@@ -62,8 +60,8 @@ class CartesianCoordinateSystem:
         return rect_item
 
     def drawCircle(self, x, y, radius, pen, filled=False):
-        radius=radius*self.unit
-        circle_item = QGraphicsEllipseItem((x - radius)*self.unit, (-y - radius)*self.unit, (2 * radius)*self.unit, (2 * radius)*self.unit)
+        circle_item = QGraphicsEllipseItem((x - radius)*self.unit , -(y + radius)*self.unit,
+                                           2 * radius*self.unit , 2 * radius*self.unit)
         circle_item.setPen(pen)
         if filled:
             circle_item.setBrush(pen.color())
@@ -71,9 +69,15 @@ class CartesianCoordinateSystem:
         return circle_item
 
     def drawLine(self, x1, y1, x2, y2, pen):
-        line_item = QGraphicsLineItem(x1*self.unit, -y1*self.unit, x2*self.unit, -y2*self.unit)
+        line_item = QGraphicsLineItem(x1 * self.unit, -y1 * self.unit, x2 * self.unit, -y2 * self.unit)
         line_item.setPen(pen)
         self.scene.addItem(line_item)
         return line_item
 
+    def drawEllipse(self,x,y,a,b,pen):
+        ellipse_item = QGraphicsEllipseItem((x - a)*self.unit , -(y + b)*self.unit,
+                                           2 * a*self.unit , 2 * b*self.unit)
+        ellipse_item.setPen(pen)
 
+        self.scene.addItem(ellipse_item)
+        return ellipse_item
