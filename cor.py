@@ -14,17 +14,14 @@ class CartesianCoordinateSystem:
         # 创建用于坐标轴的QPen（实线黑色）
         axis_pen = QPen(Qt.black)
         axis_pen.setStyle(Qt.SolidLine)
-
         # 绘制坐标轴
         self.scene.addLine(-1000, 0, 1000, 0, axis_pen)
         self.scene.addLine(0, -1000, 0, 1000, axis_pen)
-
         # 绘制刻度
         for i in range(-1000, 1001, self.unit):
             if i != 0:
                 self.scene.addLine(i, -5, i, 5, axis_pen)
                 self.scene.addLine(-5, i, 5, i, axis_pen)
-
         # 绘制虚线网格
         grid_pen = QPen(QColor(192, 192, 192))  # 浅灰色
         grid_pen.setStyle(Qt.DashLine)
