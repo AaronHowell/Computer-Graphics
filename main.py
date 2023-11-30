@@ -46,7 +46,6 @@ class MainWindow(Ui_MainWindow, QMainWindow):
         RIGHT = 2
         BOTTOM = 4
         TOP = 8
-
         left_x=-10
         left_y=10
         width=20
@@ -63,13 +62,10 @@ class MainWindow(Ui_MainWindow, QMainWindow):
         self.coordinateSystem.drawLine(lineInfo[0],lineInfo[1],lineInfo[2],lineInfo[3],QPen(Qt.red))
         code1=self.CaculateRegionCode(x1,y1,XL,XR,YB,YT)
         code2=self.CaculateRegionCode(x2,y2,XL,XR,YB,YT)
-
         while code1 != 0 or code2 != 0:
             if code1 & code2 != 0:
                 return
-
             code = code1 if code1 != 0 else code2
-
             if LEFT & code:
                 x = XL
                 y = y1 + (y2 - y1) * (XL - x1) / (x2 - x1)
@@ -82,7 +78,6 @@ class MainWindow(Ui_MainWindow, QMainWindow):
             elif TOP & code:
                 y = YT
                 x = x1 + (x2 - x1) * (YT - y1) / (y2 - y1)
-
             if code == code1:
                 x1 = x
                 y1 = y
@@ -91,7 +86,6 @@ class MainWindow(Ui_MainWindow, QMainWindow):
                 x2 = x
                 y2 = y
                 code2 = self.CaculateRegionCode(x2, y2, XL, XR, YB, YT)
-
         self.DDAline([int(x1),int(y1),int(x2),int(y2)])
     def CaculateRegionCode(self,x, y, XL, XR, YB, YT):
         LEFT = 1
